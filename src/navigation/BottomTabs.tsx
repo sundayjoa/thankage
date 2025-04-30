@@ -6,7 +6,7 @@ import Heart from '../screens/Heart';
 import Camp from '../screens/Camp';
 import Alert from '../screens/Alert';
 import Settings from '../screens/Settings';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,49 +15,60 @@ const BottomTabs = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
+
             if (route.name === '홈')
               return (
-                <Ionicons
-                  name={focused ? 'home' : 'home-outline'}
-                  size={size}
-                  color={color}
-                />
+                <View style={{ marginTop: 8 }}>
+                    <Ionicons
+                        name={focused ? 'home' : 'home-outline'}
+                        size={size}
+                        color={color}
+                    />
+                </View>
               );
           
             if (route.name === '하트획득')
               return (
-                <FontAwesome
-                  name={focused ? 'heart' : 'heart-o'}
-                  size={size}
-                  color={color}
-                />
+                <View style={{ marginTop: 8 }}>
+                    <FontAwesome
+                        name={focused ? 'heart' : 'heart-o'}
+                        size={size}
+                        color={color}
+                    />
+                </View>
               );
           
             if (route.name === '캠프탐색')
               return (
-                <Ionicons
-                  name={focused ? 'speedometer' : 'speedometer-outline'}
-                  size={size}
-                  color={color}
-                />
+                <View style={{ marginTop: 8 }}>
+                    <Ionicons
+                        name={focused ? 'speedometer' : 'speedometer-outline'}
+                        size={size}
+                        color={color}
+                    />
+                </View>
               );
           
             if (route.name === '알림')
               return (
-                <Ionicons
-                  name={focused ? 'notifications' : 'notifications-outline'}
-                  size={size}
-                  color={color}
-                />
+                <View style={{ marginTop: 8 }}>
+                    <Ionicons
+                        name={focused ? 'notifications' : 'notifications-outline'}
+                        size={size}
+                        color={color}
+                    />
+                </View>
               );
           
             if (route.name === '설정')
               return (
-                <Ionicons
-                  name={focused ? 'settings' : 'settings-outline'}
-                  size={size}
-                  color={color}
-                />
+                <View style={{ marginTop: 8 }}>
+                    <Ionicons
+                        name={focused ? 'settings' : 'settings-outline'}
+                        size={size}
+                        color={color}
+                    />
+                </View>
               );
           },
 
@@ -69,6 +80,11 @@ const BottomTabs = () => {
         tabBarActiveTintColor: '#000',
         tabBarInactiveTintColor: '#888',
         headerShown: false,
+
+        tabBarStyle: {
+            height: 60,
+            paddingBottom: 6,
+        },
       })}
     >
       <Tab.Screen name="홈" component={Home} />
