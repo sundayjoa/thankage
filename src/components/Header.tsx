@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     container: {
       height: '10%',
       width: '100%',
-      position: 'absolute',
       top: 0,
       backgroundColor: '#fff',
       flexDirection: 'row',
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       paddingHorizontal: 16,
       borderBottomWidth: 1,
-      borderBottomColor: '#eee',
+      borderBottomColor: 'white',
     },
     logo: {
       width: 120,
