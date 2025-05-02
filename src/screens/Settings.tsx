@@ -1,21 +1,32 @@
-import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import Header from "../components/Header";
+import UserInfo from "../components/Settings/UserInfo";
+import SettingsGrid from "../components/Settings/SettingsGrid";
+import AdItem from "../components/Settings/AdItem";
 
 const Settings = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
     return (
         <View style={styles.container}>
             <Header isLoggedIn={false} />
-            <Text>Settings 화면</Text>
+
+            <ScrollView contentContainerStyle={styles.container}>
+                <UserInfo isLoggedIn={isLoggedIn} />
+
+                <SettingsGrid isLoggedIn={isLoggedIn} />
+
+                <AdItem />
+
+            </ScrollView>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+        flex: 1,
     },
 });
 
