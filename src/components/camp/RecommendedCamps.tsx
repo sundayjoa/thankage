@@ -35,7 +35,7 @@ const RecommendedCamps = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Image source={item.image} style={styles.image} />
+            <Image source={item.image} style={styles.image} resizeMode="stretch" />
             <View style={styles.textArea}>
               <Text style={styles.name}>{item.name}</Text>
               <Text style={styles.desc}>{item.description}</Text>
@@ -49,14 +49,14 @@ const RecommendedCamps = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
+    marginTop: 14,
     paddingHorizontal: 16,
     backgroundColor: 'white',
   },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 6,
   },
   title: {
     fontSize: 17,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'white',
     marginBottom: 4,
-    padding: 12,
+    padding: 3,
   },
   image: {
     width: windowWidth * 0.4,

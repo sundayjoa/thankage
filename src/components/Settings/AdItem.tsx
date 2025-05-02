@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     paddingHorizontal: 16,
-    marginTop: '2%',
+    marginTop: '1%',
   },
   image: {
     width: '100%',
     height: windowWidth * 0.2,
-    borderRadius: 12,
+    borderRadius: 6,
   },
 });
 

@@ -18,24 +18,19 @@ const SettingsItem = ({
   
   const styles = StyleSheet.create({
     item: {
-      width: '44%',
+      width: '49%',
       backgroundColor: '#fff',
-      borderWidth: 1,
       borderColor: '#EAEAEA',
-      borderRadius: 12,
-      paddingVertical: '5%',
+      borderRadius: 8,
+      paddingVertical: '3.5%',
       paddingHorizontal: 12,
       flexDirection: 'column',
       marginBottom: '3%',
-      marginLeft: '3%',
-      marginRight: '3%',
       justifyContent: 'center',
     },
     itemText: {
-      fontSize: 16,
-      fontWeight: 'bold',
+      fontSize: 15,
       color: '#333',
-      marginTop: 30,
     },
   });
   

@@ -6,7 +6,6 @@ const Alert = () => {
     return (
         <View style={styles.container}>
             <Header isLoggedIn={false} />
-            <Text>Alert 화면</Text>
         </View>
     );
 };

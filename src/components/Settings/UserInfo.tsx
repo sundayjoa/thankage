@@ -19,14 +19,14 @@ const UserInfo = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
 const styles = StyleSheet.create({
   userInfoBox: {
     flexDirection: 'row',
-    height: '9%',
-    padding: 16,
+    height: '16%',
+    padding: 10,
     backgroundColor: 'white',
-    borderRadius: 12,
-    marginBottom: '3%',
-    marginLeft: '3%',
-    marginRight: '3%',
-    marginTop: '3%',
+    borderRadius: 16,
+    marginBottom: '4%',
+    marginLeft: '4%',
+    marginRight: '4%',
+    marginTop: '4%',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -36,8 +36,9 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontSize: 16,
+    fontWeight: 'bold',
     color: '#333',
-    marginLeft: 12,
+    marginLeft: 6,
   },
 });
 

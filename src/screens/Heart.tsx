@@ -24,7 +24,7 @@ const Heart = () => {
                     imageSource={require('../../assets/images/heart/charging.png')}
                     navigateTo="PaymentDetail"
                 />
-                <Text style={styles.textstyle}>*주요 이벤트가 진행중일 경우 혹은 관리에 따라 차단될 수 있습니다.</Text>
+                <Text style={styles.textstyle}>※ 주요 이벤트가 진행중일 경우 혹은 관리에 따라 차단될 수 있습니다.</Text>
             </ScrollView>
         </View>
     );
@@ -33,12 +33,12 @@ const Heart = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
     },
     textstyle: {
-        fontSize: 12,
-        marginLeft: 30,
-        marginRight: 30,
+        fontSize: 10,
+        marginLeft: 20,
+        marginRight: 20,
+        color: 'grey',
     }
 });
 

@@ -1,10 +1,9 @@
-// src/components/HeartCard.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
-const horizontalMargin = 20;
+const horizontalMargin = 15;
 
 interface HeartCardProps {
   imageSource: any;
@@ -13,14 +12,30 @@ interface HeartCardProps {
 
 const HeartCard = ({ imageSource, navigateTo }: HeartCardProps) => {
   const navigation = useNavigation();
+  const [calculatedHeight, setCalculatedHeight] = useState<number>(200); 
+
+  useEffect(() => {
+    const { uri } = Image.resolveAssetSource(imageSource);
+    Image.getSize(
+      uri,
+      (width, height) => {
+        const ratio = height / width;
+        const scaledHeight = (windowWidth - horizontalMargin * 2) * ratio * 2.5;
+        setCalculatedHeight(scaledHeight);
+      },
+      (error) => {
+        console.warn('이미지 크기 불러오기 실패:', error);
+      }
+    );
+  }, [imageSource]);
 
   return (
     <TouchableOpacity
-      style={styles.card}
+      style={[styles.card, { height: calculatedHeight }]}
       onPress={() => navigation.navigate(navigateTo as never)}
       activeOpacity={0.8}
     >
-      <Image source={imageSource} style={styles.image} resizeMode="cover" />
+      <Image source={imageSource} style={styles.image} resizeMode="stretch" />
     </TouchableOpacity>
   );
 };
@@ -29,7 +44,7 @@ const styles = StyleSheet.create({
   card: {
     width: windowWidth - horizontalMargin * 2,
     marginHorizontal: horizontalMargin,
-    marginVertical: 12,
+    marginVertical: '1.5%',
     borderRadius: 12,
     overflow: 'hidden',
 
@@ -45,6 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
+    height: '100%',
   },
 });
 

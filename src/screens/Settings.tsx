@@ -12,7 +12,7 @@ const Settings = () => {
         <View style={styles.container}>
             <Header isLoggedIn={false} />
 
-            <ScrollView contentContainerStyle={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollContent}>
                 <UserInfo isLoggedIn={isLoggedIn} />
 
                 <SettingsGrid isLoggedIn={isLoggedIn} />
@@ -27,6 +27,10 @@ const Settings = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    scrollContent: {
+        paddingBottom: 40, 
+        flexGrow: 1,     
     },
 });
 
