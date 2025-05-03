@@ -1,14 +1,17 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuthStore } from '../../store/useAuthStore';
 
 const UserInfo = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+    const user = useAuthStore((state) => state.user);
+
     return (
       <TouchableOpacity style={styles.userInfoBox}>
         <View style={styles.leftSection}>
           <Ionicons name="person-circle-outline" size={50} color="lightgrey" />
           <Text style={styles.userName}>
-            {isLoggedIn ? '테스트' : '로그인 후 이용이 가능합니다.'}
+            {user ? `${user.name}` : '로그인 후 이용이 가능합니다.'}
           </Text>
         </View>
         <Ionicons name="chevron-forward" size={20} color="#aaa" />

@@ -2,11 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import Header from "../components/Header";
 import HeartCard from "../components/HeartCard";
+import { useAuthStore } from "../store/useAuthStore";
 
 const Heart = () => {
+    const isLoggedIn = useAuthStore(state => state.isLoggedIn);
+
     return (
         <View style={styles.container}>
-            <Header isLoggedIn={false} />
+            <Header isLoggedIn={isLoggedIn} />
             <ScrollView>
                 <HeartCard
                     imageSource={require('../../assets/images/heart/solving.png')}

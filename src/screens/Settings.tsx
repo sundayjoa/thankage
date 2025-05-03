@@ -4,13 +4,14 @@ import Header from "../components/Header";
 import UserInfo from "../components/Settings/UserInfo";
 import SettingsGrid from "../components/Settings/SettingsGrid";
 import AdItem from "../components/Settings/AdItem";
+import { useAuthStore } from "../store/useAuthStore";
 
 const Settings = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const isLoggedIn = useAuthStore(state => state.isLoggedIn);
 
     return (
         <View style={styles.container}>
-            <Header isLoggedIn={false} />
+            <Header isLoggedIn={isLoggedIn} />
 
             <ScrollView contentContainerStyle={styles.scrollContent}>
                 <UserInfo isLoggedIn={isLoggedIn} />

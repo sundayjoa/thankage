@@ -3,8 +3,10 @@ import { View, Text, StyleSheet,TouchableOpacity, SafeAreaView } from "react-nat
 import Header from "../components/Header";
 import BizChannel from "../components/camp/BizChannel";
 import RecommendedCamps from "../components/camp/RecommendedCamps";
+import { useAuthStore } from "../store/useAuthStore";
 
 const Camp = () => {
+    const isLoggedIn = useAuthStore(state => state.isLoggedIn);
     //캠프 게시글 추가
     const handleAddPress = () => {
         console.log('플러스 버튼 클릭됨!');
@@ -12,7 +14,7 @@ const Camp = () => {
 
     return (
         <View style={styles.container}>
-            <Header isLoggedIn={false} />
+            <Header isLoggedIn={isLoggedIn} />
             <BizChannel />
             <RecommendedCamps />
 

@@ -4,12 +4,14 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 const SettingsItem = ({
     icon,
     label,
+    onPress,
   }: {
     icon: React.ReactNode;
     label: string;
+    onPress?: () => void;
   }) => {
     return (
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         {icon}
         <Text style={styles.itemText}>{label}</Text>
       </TouchableOpacity>
