@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
 
 const windowWidth = Dimensions.get('window').width;
 const horizontalMargin = 15;
 
 interface HeartCardProps {
   imageSource: any;
-  navigateTo: string;
+  navigateTo?: keyof RootStackParamList;
 }
 
 const HeartCard = ({ imageSource, navigateTo }: HeartCardProps) => {
-  const navigation = useNavigation();
   const [calculatedHeight, setCalculatedHeight] = useState<number>(200); 
+
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   useEffect(() => {
     const { uri } = Image.resolveAssetSource(imageSource);
@@ -32,7 +35,7 @@ const HeartCard = ({ imageSource, navigateTo }: HeartCardProps) => {
   return (
     <TouchableOpacity
       style={[styles.card, { height: calculatedHeight }]}
-      onPress={() => navigation.navigate(navigateTo as never)}
+      onPress={() => navigation.navigate(navigateTo)}
       activeOpacity={0.8}
     >
       <Image source={imageSource} style={styles.image} resizeMode="stretch" />
