@@ -9,6 +9,8 @@ import QuizSolo from '../screens/Login/Heart/QuizSolo';
 import Quiz from '../screens/Login/Heart/Quiz';
 import Explanation from '../screens/Login/Heart/Explanation';
 import Result from '../screens/Login/Heart/Result';
+import PostDetail from '../screens/Home/PostDetail';
+import Write from '../screens/Home/Write';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,8 @@ const Navigation = () => {
       <Stack.Screen name="Quiz" component={Quiz} />
       <Stack.Screen name="Explanation" component={Explanation} />
       <Stack.Screen name="Result" component={Result} />
+      <Stack.Screen name="PostDetail" component={PostDetail} />
+      <Stack.Screen name="Write" component={Write} />
     </Stack.Navigator>
   );
 };

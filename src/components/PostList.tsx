@@ -1,6 +1,8 @@
 import React from 'react';
 import { FlatList, View, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
 import { usePostStore } from '../store/usePostStore';
 import { Post } from '../data/postData';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -8,11 +10,16 @@ import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 const windowHeight = Dimensions.get('window').height;
 
 export default function PostList() {
-  const navigation = useNavigation();
-  const posts = usePostStore((state) => state.posts);
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'PostDetail'>>();
+    const posts = usePostStore((state) => state.posts);
 
   const renderItem = ({ item }: { item: Post }) => (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+        style={styles.card}
+        onPress={() => {
+            navigation.navigate('PostDetail', { post: item });
+          }}
+    >
     <View style={styles.row}>
         <Image source={item.image} style={styles.image} />
         <View style={styles.content}>
@@ -30,17 +37,17 @@ export default function PostList() {
 
   return (
     <View style={{ flex: 1 }}>
-      <FlatList
-        data={posts}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-        ListHeaderComponent={
-            <View style={styles.headerRow}>
-              <Text style={styles.sectionTitle}>캠프</Text>
-              <MaterialCommunityIcons name="pin-outline" size={19} color="darkgray" style={{ marginLeft: 3, marginTop: 1 }} />
-            </View>
-        }
-      />
+        <FlatList
+            data={posts}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            ListHeaderComponent={
+                <View style={styles.headerRow}>
+                <Text style={styles.sectionTitle}>캠프</Text>
+                <MaterialCommunityIcons name="pin-outline" size={19} color="darkgray" style={{ marginLeft: 3, marginTop: 1 }} />
+                </View>
+            }
+        />
     </View>
   );
 }

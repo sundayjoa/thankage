@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather, Ionicons } from '@expo/vector-icons';
-import Home from '../screens/Home';
+import Home from '../screens/Home/Home';
 import Heart from '../screens/Login/Heart/Heart';
 import Camp from '../screens/Camp';
 import Alert from '../screens/Alert';

@@ -1,3 +1,5 @@
+import type { Post } from "../data/postData";
+
 export type RootStackParamList = {
     MainTabs: undefined;
     Login: undefined;
@@ -7,4 +9,6 @@ export type RootStackParamList = {
     Quiz: undefined;
     Explanation: undefined;
     Result: undefined;
-  };
+    PostDetail: { post: Post };
+    Write: { post?: Post };
+};
